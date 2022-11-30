@@ -1,0 +1,77 @@
+#%RAML 1.0
+title: exp_apiretrieveconsolidatedrouts_webapplication
+description: this API file will retrive retrive consolidated routes and schuleded rutoes
+uses:
+  common: /libaries/common/trats/commom_business_library.raml
+  route: /libaries/routes/routes-business-library.raml
+  schedule: /libaries/schedulers/schedule-business-library.raml
+
+/booking:
+  /{transportType}:
+    /routes:
+      get:
+        is:
+          - common.trancationid
+          - common.companyname
+          - common.depatruelocation
+          - common.destinationlocation
+        responses:
+          200:
+            body:
+              application/json:
+                type: route.getroutesresponse
+                example: !include /libaries/routes/examples/getrouter_200_example.json
+          
+          400:
+            body:
+              application/json:
+                type: common.commonerror
+                example: !include /libaries/routes/examples/400response.json
+                  
+          404:
+            body:
+              application/json:
+                type: common.commonerror
+                example: !include /libaries/common/404response.json
+                  
+          500:
+            body:
+              application/json:
+               type: common.commonerror 
+               example: !include /libaries/common/examples/500.json
+                   
+    /schedules:
+      get:
+        is:
+          - common.trancationid
+          - common.companyname
+          - common.depatruelocation
+          - common.destinationlocation
+          - common.timezone
+        responses:
+          200:
+            body:
+              application/json:
+                type: schedule.getscheduleresponse
+                example: !include /libaries/schedulers/examples/getscheduler_200_ respose.json
+          404:
+            body:
+              application/json:
+                type: common.commonerror   
+                example: !include /libaries/common/examples/500.json
+          400:
+            body:
+              application/json:
+                type: common.commonerror
+                example: !include /libaries/routes/examples/400response.json                      
+
+          
+
+         
+            
+          
+
+
+                    
+                         
+                  
