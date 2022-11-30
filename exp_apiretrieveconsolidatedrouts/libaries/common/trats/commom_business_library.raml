@@ -1,0 +1,12 @@
+#%RAML 1.0 Library
+usage:
+traits:
+  trancationid:  !include /libaries/common/trats/header_transcation_traits.raml
+  companyname: !include /libaries/common/trats/queryparams_companyname.raml
+  depatruelocation: !include /libaries/common/trats/queryparms_depatruelocation.raml
+  destinationlocation: !include /libaries/common/trats/qureyparms_destination_trait.raml
+  timezone: !include /libaries/common/trats/queryparms_timezone_trait.raml
+types:
+  commonerror: !include /libaries/common/dataTypes/errorrespnose_common_dataType.raml
+
+  
